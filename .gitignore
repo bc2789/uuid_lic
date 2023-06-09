@@ -1005,3 +1005,4 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,clion,clion+all,pvs,visualstudiocode,visualstudio,git,linux,ninja,cmake,assembler,premake-gmake,macos,xcode,clion+iml,python
+.vscode/launch.json

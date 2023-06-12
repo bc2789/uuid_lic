@@ -1,0 +1,19 @@
+name: Run Shell Script on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Shell Script
+        run: |
+          # Your shell script commands here
+          ./your_script.sh

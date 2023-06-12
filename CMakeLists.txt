@@ -23,7 +23,7 @@ target_include_directories(uuid_lic PRIVATE ${OPENSSL_INCLUDE_DIR})
 # Link against the OpenSSL Crypto library
 target_link_libraries(uuid_lic PRIVATE OpenSSL::Crypto)
 # Link against the OpenSSL libraries
-target_link_libraries(uuid_lic PRIVATE ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} crypto)
+target_link_libraries(uuid_lic PRIVATE ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} crypto udev)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

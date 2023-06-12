@@ -1,7 +1,7 @@
 #include <openssl/sha.h>
 #include <iostream>
 #include <string>
-
+#include<type_traits>
 std::string CalculateSHA256(const std::string& data)
 {
     unsigned char hash[SHA256_DIGEST_LENGTH];

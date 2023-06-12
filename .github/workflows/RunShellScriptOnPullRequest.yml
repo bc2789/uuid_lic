@@ -20,3 +20,12 @@ jobs:
         run: |
           # Your shell script commands here
           ./build_and_run.sh
+          
+      - name: Validate Script
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "Script executed successfully"
+          else
+            echo "Script execution failed"
+            exit 1
+          fi

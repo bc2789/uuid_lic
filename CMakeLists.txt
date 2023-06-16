@@ -16,6 +16,7 @@ add_executable(uuid_lic main.cpp)
 message(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 # Link against OpenSSL Crypto library
 find_package(OpenSSL REQUIRED)
+find_package(OpenMP REQUIRED)
 
 # Add the OpenSSL include directories
 target_include_directories(uuid_lic PRIVATE ${OPENSSL_INCLUDE_DIR})
@@ -24,6 +25,7 @@ target_include_directories(uuid_lic PRIVATE ${OPENSSL_INCLUDE_DIR})
 target_link_libraries(uuid_lic PRIVATE OpenSSL::Crypto)
 # Link against the OpenSSL libraries
 target_link_libraries(uuid_lic PRIVATE ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} crypto udev)
+target_link_libraries(uuid_lic PRIVATE OpenMP::OpenMP_CXX)  # Use OpenMP_CXX instead of OpenMP_C
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

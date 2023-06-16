@@ -1,29 +1,16 @@
-#include <openssl/sha.h>
+#include <cstdlib>
 #include <iostream>
-#include <string>
-#include<type_traits>
-std::string CalculateSHA256(const std::string& data)
-{
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256(reinterpret_cast<const unsigned char*>(data.c_str()), data.length(), hash);
+#include <omp.h>
 
-    std::string sha256Hash;
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+int main() {
+    int unsuccess = false;
+    #pragma omp parallel
     {
-        char hex[3];
-        sprintf(hex, "%02x", hash[i]);
-        sha256Hash += hex;
+        int thread_id = omp_get_thread_num();
+        printf("Hello from thread %d\n", thread_id);
+        std::cout << "Hello Thread" << std::endl;
     }
-
-    return sha256Hash;
-}
-
-int main()
-{
-    std::string data = "Hello, World!";
-    std::string sha256Hash = CalculateSHA256(data);
-
-    std::cout << "SHA-256 Hash: " << sha256Hash << std::endl;
-
-    return 0;
+    if(unsuccess) return EXIT_FAILURE;
+    std::cout << "Hello Thread" << std::endl;
+    return EXIT_SUCCESS;
 }
